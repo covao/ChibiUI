@@ -37,8 +37,6 @@ class ChibiUI:
         if self.root:
             self.root.quit()
         self.alive = False
-        print("ChibiUI closed.")
-        os._exit(0)
 
 
     def __init__(self, title='ChibiUI'):
