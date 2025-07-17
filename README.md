@@ -13,36 +13,35 @@ ChibiUI is a tiny GUI framework that sits on top of Python’s built‑in Tkinte
 ~~~ python
 from ChibiUI import ChibiUI
 ui = ChibiUI("ChibiUI Example")
-
-# Root level widgets
-ui.add_textbox("Main", "Welcome to ChibiUI")
+ui.add_textbox("/Title", "Personal Data")
 
 # Navigation tree items are automatically created from the path
-ui.add_textbox("Person1/Name", "John Doe")
-ui.add_selector("Person1/Gender", ["Male", "Female", "Other"], "Male")
-ui.add_slider("Person1/Age", 0, 100, 1, 30)
-ui.add_checkbox("Person1/Subscribe", True)
-ui.add_browse_file("Person1/Select File")
-ui.add_button("Person1/Submit", False)
+ui.add_textbox("Person/Name", "John Doe")
+ui.add_selector("Person/Gender", ["Male", "Female", "Other"], "Male")
+ui.add_slider("Person/Age", 0, 100, 1, 30)
+ui.add_checkbox("Person/Add File", True)
+ui.add_browse_file("Person/Select File")
+ui.add_button("Person/Submit", False)
 
-ui.add_textbox("Person2/Name", "Michel Lee")
-ui.add_selector("Person2/Gender", ["Male", "Female", "Other"], "Female")
+ui.add_textbox("Option/Country", "Japan")
 
+while ui.alive: # Main loop to keep the UI running
+    if ui.get("Person/Submit"): # Check if the button is pressed
+        print("Submit button pressed!")
+        print("Title:", ui.get("/Title"))
 
-while ui.alive:
-    # Check if the Submit button is pressed,print person's info
-    if ui.value["/Person1/Submit"].get():
-        print("Person 1 Info:")
-        print("Name:", ui.value["/Person1/Name"].get())
-        print("Gender:", ui.value["/Person1/Gender"].get())
-        print("Age:", ui.value["/Person1/Age"].get())
-        print("Subscribe:", ui.value["/Person1/Subscribe"].get())
-        print("Select File:", ui.value["/Person1/Select File"].get())
-        ui.value["/Person1/Submit"].set(False)
+        print("-- Personal Info --")
+        print("Name:", ui.get("/Person/Name"))
+        print("Gender:", ui.get("/Person/Gender"))
+        print("Age:", ui.get("/Person/Age"))
+        print("Select File:", ui.get("/Person/Select File"))
+        print("Country:", ui.get("/Option/Country"))
         print("---")
 
-    import time
-    time.sleep(0.1)  # Add a small delay to avoid excessive CPU usage
+        ui.set("/Person/Submit", False) # Reset the button value
+    
+    # Add a small delay to prevent high CPU usage
+    time.sleep(0.01)
 
 print('End')
 ~~~ 
