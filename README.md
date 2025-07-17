@@ -13,7 +13,7 @@ ChibiUI is a tiny GUI framework that sits on top of Python’s built‑in Tkinte
 ~~~ python
 from ChibiUI import ChibiUI
 ui = ChibiUI("ChibiUI Example")
-ui.add_textbox("/Title", "Personal Data")
+ui.add_textbox("Title", "Personal Data")
 
 # Navigation tree items are automatically created from the path
 ui.add_textbox("Person/Name", "John Doe")
@@ -28,14 +28,14 @@ ui.add_textbox("Option/Country", "Japan")
 while ui.alive: # Main loop to keep the UI running
     if ui.get("Person/Submit"): # Check if the button is pressed
         print("Submit button pressed!")
-        print("Title:", ui.get("/Title"))
+        print("Title:", ui.get("Title"))
 
         print("-- Personal Info --")
-        print("Name:", ui.get("/Person/Name"))
-        print("Gender:", ui.get("/Person/Gender"))
-        print("Age:", ui.get("/Person/Age"))
-        print("Select File:", ui.get("/Person/Select File"))
-        print("Country:", ui.get("/Option/Country"))
+        print("Name:", ui.get("Person/Name"))
+        print("Gender:", ui.get("Person/Gender"))
+        print("Age:", ui.get("Person/Age"))
+        print("Select File:", ui.get("Person/Select File"))
+        print("Country:", ui.get("Option/Country"))
         print("---")
 
         ui.set("/Person/Submit", False) # Reset the button value
