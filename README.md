@@ -9,7 +9,20 @@ ChibiUI is a tiny Python GUI framework that makes it easy to build user interfac
 - Minimal API, easy to use
 - Headless mode for testing without a GUI
 
-## 🚀 Quick Start
+## 📦 Installation
+### Method 1: Install library using pip:
+```bash
+pip install git+https://github.com/covao/ChibiUI
+```
+### Method 2: Download the source code
+ Download [chibiui.py](./chibiui/chibiui.py) and place it in your project directory
+
+## Uninstall
+```bash
+pip uninstall chibiui
+```
+
+## Example
 ~~~python
 from chibiui import chibiui
 ui = chibiui("ChibiUI Example")
@@ -43,16 +56,16 @@ print("End")
 ~~~
 
 
-### Method Overview
-- `chibiui(title, nogui=False)`: Create the UI. Set nogui=True for headless mode.
-- `add_textbox(path, value)`: Add a text input field.
-- `add_selector(path, options, value)`: Add a dropdown selector.
-- `add_slider(path, min_val, max_val, step, value)`: Add a slider input.
-- `add_checkbox(path, value)`: Add a checkbox.
-- `add_browse_file(label)`: Add a file selection button and text field.
-- `add_button(path, value)`: Add a button.
-- `get(path)`: Get the value for a path.
-- `set(path, value)`: Set the value for a path.
-- `alive`: True if the UI is running.
+## API Reference
+- chibiui(title, nogui): Create the UI. Set nogui=True for headless mode.
+- add_textbox(path, value): Add a text input field.
+- add_selector(path, options, value): Add a dropdown selector.
+- add_slider(path, min_val, max_val, step, value): Add a slider input.
+- add_checkbox(path, value): Add a checkbox.
+- add_browse_file(label): Add a file selection button and text field.
+- add_button(path, value): Add a button.
+- get(path): Get the value for a path.
+- set(path, value): Set the value for a path.
+- alive: True if the UI is running.
 
 ![ChibiUI](ChibiUI.gif)
