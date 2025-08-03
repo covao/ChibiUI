@@ -25,6 +25,8 @@ pip uninstall chibiui
 ## Example
 ~~~python
 from chibiui import chibiui
+imort time
+
 ui = chibiui("ChibiUI Example")
 ui.add_textbox("Title", "Personal Data")
 
@@ -69,3 +71,4 @@ print("End")
 - alive: True if the UI is running.
 
 ![ChibiUI](ChibiUI.gif)
+
